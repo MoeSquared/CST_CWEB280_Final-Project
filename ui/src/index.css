@@ -1,0 +1,27 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+/* Custom styles for react-big-calendar */
+.rbc-calendar {
+  min-height: 500px;
+}
+
+.rbc-event {
+  border-radius: 4px;
+}
+
+.rbc-today {
+  background-color: oklch(var(--p) / 0.1);
+}
+
+.rbc-toolbar button {
+  @apply btn btn-sm btn-ghost;
+}
+
+.rbc-toolbar button.rbc-active {
+  @apply btn-primary;
+}
+
+.rbc-header {
+  @apply font-semibold py-2;
+}
