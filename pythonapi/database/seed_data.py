@@ -25,8 +25,8 @@ def init_seed_data():
         today = date.today()
 
         # Semester dates
-        semester_start = date(2025, 9, 1)
-        semester_end = date(2025, 12, 19)
+        semester_start = date(2026, 1, 5)
+        semester_end = date(2026, 4, 30)
 
         # COURSES
 

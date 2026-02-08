@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate, useLocation } from 'react-router';
 import {
     HiOutlineHome,
     HiOutlineCalendar,
@@ -15,6 +15,7 @@ import {FaRegUserCircle} from "react-icons/fa";
 
 function NavBar({ user, onLogout }) {
     const navigate = useNavigate();
+    const location = useLocation();
 
     const handleLogout = () => {
         if (onLogout) {
@@ -23,37 +24,65 @@ function NavBar({ user, onLogout }) {
         navigate('/login');
     };
 
+    // Check if a path is active
+    const isActive = (path) => {
+        if (path === '/') {
+            return location.pathname === '/';
+        }
+        return location.pathname.startsWith(path);
+    };
+
     return (
         <div className="navbar bg-primary text-primary-content shadow-lg" data-cy="navbar">
             <div className="navbar-start">
                 <ul className="menu menu-horizontal px-1 gap-1">
                     <li>
-                        <Link to="/" className="gap-2" data-cy="nav-home">
+                        <Link
+                            to="/"
+                            className={`gap-2 ${isActive('/') ? 'bg-primary-content/20 font-semibold' : ''}`}
+                            data-cy="nav-home"
+                        >
                             <HiOutlineHome className="h-5 w-5" />
                             Home
                         </Link>
                     </li>
                     <li>
-                        <Link to="/upcoming" className="gap-2" data-cy="nav-upcoming">
+                        <Link
+                            to="/upcoming"
+                            className={`gap-2 ${isActive('/upcoming') ? 'bg-primary-content/20 font-semibold' : ''}`}
+                            data-cy="nav-upcoming"
+                        >
                             <HiOutlineClipboardDocumentList className="h-5 w-5" />
                             Upcoming
                         </Link>
                     </li>
                     <li>
-                        <Link to="/calendar" className="gap-2" data-cy="nav-calendar">
+                        <Link
+                            to="/calendar"
+                            className={`gap-2 ${isActive('/calendar') ? 'bg-primary-content/20 font-semibold' : ''}`}
+                            data-cy="nav-calendar"
+                        >
                             <HiOutlineCalendar className="h-5 w-5" />
                             Calendar
                         </Link>
                     </li>
                     <li>
-                        <Link to="/courses" className="gap-2" data-cy="nav-courses">
+                        <Link
+                            to="/courses"
+                            className={`gap-2 ${isActive('/courses') ? 'bg-primary-content/20 font-semibold' : ''}`}
+                            data-cy="nav-courses"
+                        >
                             <HiOutlineAcademicCap className="h-5 w-5" />
                             Courses
                         </Link>
                     </li>
                     {user?.role === 'admin' && (
                         <li>
-                            <Link to="/admin" className="gap-2" data-cy="nav-admin">
+                            <Link
+                                to="/admin"
+                                className={`gap-2 ${isActive('/admin') ? 'bg-primary-content/20 font-semibold' : ''}`}
+                                data-cy="nav-admin"
+                            >
                                 <HiOutlineCog6Tooth className="h-5 w-5" />
                                 Admin
                             </Link>
@@ -63,7 +92,11 @@ function NavBar({ user, onLogout }) {
             </div>
 
             <div className="navbar-end gap-2">
-                <Link to="/add" className="btn btn-success btn-sm gap-2" data-cy="nav-add-entry">
+                <Link
+                    to="/add"
+                    className={`btn btn-sm gap-2 ${isActive('/add') ? 'btn-accent' : 'btn-success'}`}
+                    data-cy="nav-add-entry"
+                >
                     <HiOutlinePlus className="h-5 w-5" />
                     Add Entry
                 </Link>

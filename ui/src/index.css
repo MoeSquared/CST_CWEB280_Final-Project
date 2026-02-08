@@ -1,41 +1,39 @@
 @import "tailwindcss";
 @plugin "daisyui" {
-  themes: garden --default, retro --prefersdark;
+  themes: emerald --default, retro --prefersdark;
 }
 
 @plugin "daisyui/theme" {
-  name: "garden";
-  default: true;
+  name: "retro";
+  default: false;
   prefersdark: false;
-  color-scheme: "light";
-  --color-base-100: oklch(92.951% 0.002 17.197);
-  --color-base-200: oklch(86.445% 0.002 17.197);
-  --color-base-300: oklch(79.938% 0.001 17.197);
-  --color-base-content: oklch(16.961% 0.001 17.32);
-  --color-primary: oklch(62.45% 0.278 3.836);
-  --color-primary-content: oklch(100% 0 0);
-  --color-secondary: oklch(48.495% 0.11 355.095);
-  --color-secondary-content: oklch(89.699% 0.022 355.095);
-  --color-accent: oklch(56.273% 0.054 154.39);
-  --color-accent-content: oklch(100% 0 0);
-  --color-neutral: oklch(24.155% 0.049 89.07);
-  --color-neutral-content: oklch(92.951% 0.002 17.197);
-  --color-info: oklch(72.06% 0.191 231.6);
-  --color-info-content: oklch(0% 0 0);
-  --color-success: oklch(64.8% 0.15 160);
-  --color-success-content: oklch(0% 0 0);
-  --color-warning: oklch(84.71% 0.199 83.87);
-  --color-warning-content: oklch(0% 0 0);
-  --color-error: oklch(71.76% 0.221 22.18);
-  --color-error-content: oklch(0% 0 0);
-  --radius-selector: 1rem;
+  color-scheme: "dark";
+  --color-base-100: oklch(98% 0.002 247.839);
+  --color-base-200: oklch(96% 0.003 264.542);
+  --color-base-300: oklch(92% 0.006 264.531);
+  --color-base-content: oklch(21% 0.034 264.665);
+  --color-primary: oklch(60% 0.126 221.723);
+  --color-primary-content: oklch(98% 0.019 200.873);
+  --color-secondary: oklch(54% 0.245 262.881);
+  --color-secondary-content: oklch(97% 0.014 254.604);
+  --color-accent: oklch(55% 0.288 302.321);
+  --color-accent-content: oklch(97% 0.014 308.299);
+  --color-neutral: oklch(21% 0.034 264.665);
+  --color-neutral-content: oklch(98% 0.002 247.839);
+  --color-info: oklch(60% 0.126 221.723);
+  --color-info-content: oklch(98% 0.019 200.873);
+  --color-success: oklch(64% 0.2 131.684);
+  --color-success-content: oklch(98% 0.031 120.757);
+  --color-warning: oklch(66% 0.179 58.318);
+  --color-warning-content: oklch(98% 0.022 95.277);
+  --color-error: oklch(57% 0.245 27.325);
+  --color-error-content: oklch(97% 0.013 17.38);
+  --radius-selector: 0.25rem;
   --radius-field: 0.5rem;
-  --radius-box: 1rem;
+  --radius-box: 0.5rem;
   --size-selector: 0.25rem;
   --size-field: 0.25rem;
-  --border: 1px;
-  --depth: 0;
-  --noise: 0;
+  --border: 1.5px;
+  --depth: 1;
+  --noise: 1;
 }
-
-@custom-variant dark (&:where([data-theme=retro], [data-theme=retro] *));
